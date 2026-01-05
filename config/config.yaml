@@ -1,0 +1,46 @@
+server:
+  port: "8080"
+  mode: debug # debug/release
+
+database:
+  type: sqlite # sqlite/mysql/postgres
+  path: data.db
+  # For MySQL/PostgreSQL, uncomment and configure:
+  # host: localhost
+  # port: 3306
+  # user: root
+  # password: ""
+  # dbname: domain_monitor
+
+whois:
+  api_url: "https://whois.233333.best/api/"
+  timeout: 30s
+
+monitor:
+  check_interval: "0 2 * * *" # Cron expression: every day at 2 AM
+  alert_days: [30, 15, 7, 3, 1]
+
+notifications:
+  email:
+    enabled: false
+    smtp_host: smtp.gmail.com
+    smtp_port: 587
+    from: alert@example.com
+    password: ""
+    to:
+      - admin@example.com
+
+  webhook:
+    enabled: false
+    url: "https://hooks.example.com/webhook"
+
+  telegram:
+    enabled: false
+    bot_token: ""
+    chat_id: ""
+
+  dingding:
+    enabled: false
+    webhook: ""
+    secret: ""
+
