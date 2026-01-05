@@ -163,7 +163,7 @@ sudo systemctl status domain-monitor  # 查看状态
 1. 数据库文件会自动在程序首次运行时创建
 2. 默认数据库路径：`./data/domain-monitor.db`
 3. 日志输出到标准输出（stdout）
-4. Telegram代理地址固定为 127.0.0.1:7890
+4. Telegram api 是否联通
 5. 定时任务默认每天凌晨2点执行
 
 ## 问题排查
