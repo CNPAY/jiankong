@@ -25,13 +25,6 @@ curl -L -o web-config.tar.gz $WEB_CONFIG_URL
 tar -xzf web-config.tar.gz
 rm -f web-config.tar.gz
 
-# 复制配置示例
-if [ ! -f config/config.yaml ]; then
-    echo "==> 创建配置文件..."
-    cp config/config.yaml.example config/config.yaml
-    echo "⚠️  请编辑配置文件: $INSTALL_DIR/config/config.yaml"
-fi
-
 # 创建systemd服务
 echo "==> 创建systemd服务..."
 cat > /etc/systemd/system/domain-monitor.service <<EOF
