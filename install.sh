@@ -25,6 +25,12 @@ curl -L -o web-config.tar.gz $WEB_CONFIG_URL
 tar -xzf web-config.tar.gz
 rm -f web-config.tar.gz
 
+# 复制配置示例（不再提示编辑）
+if [ ! -f config/config.yaml ]; then
+    echo "==> 创建配置文件..."
+    cp config/config.yaml.example config/config.yaml
+fi
+
 # 创建systemd服务
 echo "==> 创建systemd服务..."
 cat > /etc/systemd/system/domain-monitor.service <<EOF
@@ -47,7 +53,7 @@ EOF
 # 重新加载systemd
 systemctl daemon-reload
 
-# 启动服务
+# 启动并设置开机自启
 echo "==> 启动服务..."
 systemctl start domain-monitor
 systemctl enable domain-monitor
