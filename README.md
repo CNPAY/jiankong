@@ -14,7 +14,7 @@ curl -fsSL https://raw.githubusercontent.com/woniu336/whois/main/install.sh | su
 通知生效需要重启：`systemctl restart domain-monitor`
 
 ## bug
-某些后缀无法查询到，会报错，例如.de后缀，最好删掉，添加常用后缀
+对于不支持的后缀会显示过期，例如.de后缀
 
 
 ## 部署文件清单
